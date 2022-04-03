@@ -16,7 +16,19 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        // Enter Player Movement and Shooting here
+        // Enter Player Movement here
+
+        // Shoot
+        if (this.m_currentShootInterval > 0f)
+        {
+            this.m_currentShootInterval -= Time.deltaTime;
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            this.Shoot();
+        }
     }
 
     private void Shoot()
